@@ -42,8 +42,59 @@ position: 'topright',
 }));
 L.control.fullscreen().addTo(map);
 
-omnivore.kml('kml/bike/20_rd_to_grand_traverse_county_mccct.kml').addTo(map);
+function style(feature) {
+return {
+    weight: 2,
+    opacity: 1,
+    color: 'red',
+    //dashArray: '3',
+    fillOpacity: 0.7
+};
+}
+var customLayer = L.geoJson(null, {style: style});
 
+omnivore.kml('kml/bike/20_rd_to_grand_traverse_county_mccct.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/atlanta_to_hunt_creek_mccct.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/bass_lake_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/beaver_creek_trail_mccct.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/big_o_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/birch_hill_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/brevort_trout_lake_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/evart_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/foreman_lake_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/grand_traverse_county_to_supply_rd_mccct.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/grand_traverse_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/grand_traverse_to_leetsville_mccct.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/holton_loop_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/horseshoe_lake_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/hunt_creek_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/kinross_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/leetsville_to_kalkaska_mccct.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/lincoln_hills_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/little_manistee_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/long_lake_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/m_20_to_big_o__mccct_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/m_20_to_big_o_motorcycle__mccct.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/m_30_north_gladwin_mccct.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/m_30_to_st_helen_3_mccct.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/m_55_to_20_rd_mccct.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/m_55_to_state_rd_mccct.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/mccct_cross_state_connector.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/mio_to_meadows_mccct.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/moss_lake_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/newberry_rexton_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/north_missaukee_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/north_missaukee_motorcycle_trail__mccct.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/porterfield_lake_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/red_bridge_to_atlanta_mccct.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/sandtown_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/st_helen_to_geels_trail__mccct.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/the_meadows_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/tin_cup_spring_motorcycle_trail.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/tomahawk_motorcycle_trail_b_loop.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/tomahawk_motorcycle_trail_c_loop.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/tomahawk_to_kalkaska_mccct.kml', null, customLayer).addTo(map);
+omnivore.kml('kml/bike/tomahawk_to_red_bridge_mccct.kml', null, customLayer).addTo(map);
 
 </script>
   </body>
