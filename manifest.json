@@ -21,5 +21,7 @@
   }
     
   ],
-  "start_url": "https://jeb192004.github.io/trailmate-website/"
+  "start_url": "index.html"
+   "display": "standalone",
+  "orientation": "landscape"
 }
