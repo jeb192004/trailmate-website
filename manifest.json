@@ -3,19 +3,19 @@
   "name": "TrailMate",
   "icons": [
     {
-      "src": "img/overlay_icon.png",
+      "src": "img/icon2.png",
       "type": "image/png",
       "sizes": "48x48"
     }, {
-    "src": "img/overlay_icon.png",
+    "src": "img/icon2.png",
     "type": "image/png",
     "sizes": "152x152"
   }, {
-    "src": "img/overlay_icon.png",
+    "src": "img/icon2.png",
     "type": "image/png",
     "sizes": "144x144"
   }, {
-    "src": "img/overlay_icon.png",
+    "src": "img/icon2.png",
     "type": "image/png",
     "sizes": "192x192"
   }
