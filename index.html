@@ -1,101 +1,278 @@
-<!DOCTYPE html>
-<html>
-  <head>
-	<meta charset=utf-8 />
-	<title>TrailMate</title>
-	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-	<script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
-	<link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
-	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
-	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js'></script>
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.css" />
-	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script> <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
-<style>
-  body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:100%; }
-</style>
-  </head>
-  <body>
-	
-	
-	<div id='map'></div>
+<!DOCTYPE html> 
+  <html> 
+	<head> 
+	  <meta charset='utf-8' /> 
+		<title></title> 
+		<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+		  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js'></script>
+		  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' /> 
+			<style> body { margin:0; padding:0; } #map { position:absolute; top:0; bottom:0; width:100%; } </style> 
+			</head> 
+			<body> 
+			  <div id='map'></div> 
+			  <script> mapboxgl.accessToken = 'pk.eyJ1IjoiamViMTkyMDA0IiwiYSI6ImNpbWNyODZyaDAwMmZ1MWx2dHdzcHQ5M2EifQ.IZsMnB3wOYFIaX1A5sy7Mw';
+				var map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/mapbox/streets-v9', zoom: 0 });
+				var url = 'geojson/bike/20_rd_to_grand_traverse_county_mccct.geojson';
+				var url1 = 'geojson/bike/atlanta_to_hunt_creek_mccct.geojson';
+				var url2 = 'geojson/bike/bass_lake_motorcycle_trail.geojson';
+				var url3 = 'geojson/bike/beaver_creek_trail_mccct.geojson';
+				var url4 = 'geojson/bike/big_o_motorcycle_trail.geojson';
+				var url5 = 'geojson/bike/brevort_trout_lake_motorcycle_trail.geojson';
+				var url6 = 'geojson/bike/evart_motorcycle_trail.geojson';
+				var url7 = 'geojson/bike/foreman_lake_motorcycle_trail.geojson';
+				var url8 = 'geojson/bike/grand_traverse_county_to_supply_rd_mccct.geojson';
+				var url9 = 'geojson/bike/grand_traverse_motorcycle_trail.geojson';
+				var url10 = 'geojson/bike/grand_traverse_to_leetsville_mccct.geojson';
+				var url11 = 'geojson/bike/holton_loop_motorcycle_trail.geojson';
+				var url12 = 'geojson/bike/horseshoe_lake_motorcycle_trail.geojson';
+				var url13 = 'geojson/bike/hunt_creek_motorcycle_trail.geojson';
+				var url14 = 'geojson/bike/kinross_motorcycle_trail.geojson';
+				var url15 = 'geojson/bike/leetsville_to_kalkaska_mccct.geojson';
+				var url16 = 'geojson/bike/lincoln_hills_motorcycle_trail.geojson';
+				var url17 = 'geojson/bike/little_manistee_motorcycle_trail.geojson';
+				var url18 = 'geojson/bike/long_lake_motorcycle_trail.geojson';
+				var url19 = 'geojson/bike/m_20_to_big_o__mccct_trail.geojson';
+				var url20 = 'geojson/bike/m_20_to_big_o_motorcycle__mccct.geojson';
+				var url21 = 'geojson/bike/m_30_north_gladwin_mccct.geojson';
+				var url22 = 'geojson/bike/m_30_to_st_helen_3_mccct.geojson';
+				var url23 = 'geojson/bike/m_55_to_20_rd_mccct.geojson';
+				var url24 = 'geojson/bike/m_55_to_state_rd_mccct.geojson';
+				var url25 = 'geojson/bike/mio_to_meadows_mccct.geojson';
+				var url26 = 'geojson/bike/moss_lake_motorcycle_trail.geojson';
+				var url27 = 'geojson/bike/newberry_rexton_motorcycle_trail.geojson';
+				var url28 = 'geojson/bike/north_missaukee_motorcycle_trail.geojson';
+				var url29 = 'geojson/bike/north_missaukee_motorcycle_trail__mccct.geojson';
+				var url30 = 'geojson/bike/porterfield_lake_motorcycle_trail.geojson';
+				var url31 = 'geojson/bike/red_bridge_to_atlanta_mccct.geojson';
+				var url32 = 'geojson/bike/sandtown_motorcycle_trail.geojson';
+				var url33 = 'geojson/bike/st_helen_to_geels_trail__mccct.geojson';
+				var url34 = 'geojson/bike/the_meadows_motorcycle_trail.geojson';
+				var url35 = 'geojson/bike/tin_cup_spring_motorcycle_trail.geojson';
+				var url36 = 'geojson/bike/tomahawk_motorcycle_trail_b_loop.geojson';
+				var url37 = 'geojson/bike/tomahawk_motorcycle_trail_c_loop.geojson';
+				var url38 = 'geojson/bike/tomahawk_to_kalkaska_mccct.geojson';
+				var url39 = 'geojson/bike/tomahawk_to_red_bridge_mccct.geojson';
+				var url40 = 'geojson/bike/';
+				var url41 = 'geojson/bike/';
+				
+				
+				
+				
+				
+				map.on('load', function () {
+				map.addSource('drone', { type: 'geojson', data: url});
 
-<script>
-L.mapbox.accessToken = 'pk.eyJ1IjoiamViMTkyMDA0IiwiYSI6ImNpbWNyODZyaDAwMmZ1MWx2dHdzcHQ5M2EifQ.IZsMnB3wOYFIaX1A5sy7Mw';
-var map = L.mapbox.map('map', 'mapbox.satellite')
-    .setView([38, -95], 4);
-
-// Omnivore will AJAX-request this file behind the scenes and parse it:
-// note that there are considerations:
-// - The CSV file must contain latitude and longitude values, in column
-//   named roughly latitude and longitude
-// - The file must either be on the same domain as the page that requests it,
-//   or both the server it is requested from and the user's browser must
-//   support CORS.
-
-map.addControl(L.control.locate({
-position: 'topright',
-       locateOptions: {
-               enableHighAccuracy: true
-}
+				map.addLayer({"id": "drone","type": "line","source": "drone",
+                "layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+                
+				map.addSource('drone1', { type: 'geojson', data: url1 });
+				map.addLayer({ "id": "drone1", "type": "line", "source": "drone1",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone2', { type: 'geojson', data: url2 });
+				map.addLayer({ "id": "drone2", "type": "line", "source": "drone2",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone3', { type: 'geojson', data: url3 });
+				map.addLayer({ "id": "drone3", "type": "line", "source": "drone3",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone4', { type: 'geojson', data: url4 });
+				map.addLayer({ "id": "drone4", "type": "line", "source": "drone4",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone5', { type: 'geojson', data: url5 });
+				map.addLayer({ "id": "drone5", "type": "line", "source": "drone5",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone6', { type: 'geojson', data: url6 });
+				map.addLayer({ "id": "drone6", "type": "line", "source": "drone6",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone7', { type: 'geojson', data: url7 });
+				map.addLayer({ "id": "drone7", "type": "line", "source": "drone7",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone8', { type: 'geojson', data: url8 });
+				map.addLayer({ "id": "drone8", "type": "line", "source": "drone8",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone9', { type: 'geojson', data: url9 });
+				map.addLayer({ "id": "drone9", "type": "line", "source": "drone9",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone10', { type: 'geojson', data: url10 });
+				map.addLayer({ "id": "drone10", "type": "line", "source": "drone10",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone11', { type: 'geojson', data: url11 });
+				map.addLayer({ "id": "drone11", "type": "line", "source": "drone11",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone12', { type: 'geojson', data: url12 });
+				map.addLayer({ "id": "drone12", "type": "line", "source": "drone12",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone13', { type: 'geojson', data: url13 });
+				map.addLayer({ "id": "drone13", "type": "line", "source": "drone13",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone14', { type: 'geojson', data: url14 });
+				map.addLayer({ "id": "drone14", "type": "line", "source": "drone14",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone15', { type: 'geojson', data: url15 });
+				map.addLayer({ "id": "drone15", "type": "line", "source": "drone15",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone16', { type: 'geojson', data: url16 });
+				map.addLayer({ "id": "drone16", "type": "line", "source": "drone16",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone17', { type: 'geojson', data: url17 });
+				map.addLayer({ "id": "drone17", "type": "line", "source": "drone17",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone18', { type: 'geojson', data: url18 });
+				map.addLayer({ "id": "drone18", "type": "line", "source": "drone18",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone19', { type: 'geojson', data: url19 });
+				map.addLayer({ "id": "drone19", "type": "line", "source": "drone19",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone20', { type: 'geojson', data: url20 });
+				map.addLayer({ "id": "drone20", "type": "line", "source": "drone20",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone21', { type: 'geojson', data: url21 });
+				map.addLayer({ "id": "drone21", "type": "line", "source": "drone21",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone22', { type: 'geojson', data: url22 });
+				map.addLayer({ "id": "drone22", "type": "line", "source": "drone22",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone23', { type: 'geojson', data: url23 });
+				map.addLayer({ "id": "drone23", "type": "line", "source": "drone23",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone24', { type: 'geojson', data: url24 });
+				map.addLayer({ "id": "drone24", "type": "line", "source": "drone24",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone25', { type: 'geojson', data: url25 });
+				map.addLayer({ "id": "drone25", "type": "line", "source": "drone25",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone26', { type: 'geojson', data: url26 });
+				map.addLayer({ "id": "drone26", "type": "line", "source": "drone26",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone27', { type: 'geojson', data: url27 });
+				map.addLayer({ "id": "drone27", "type": "line", "source": "drone27",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone28', { type: 'geojson', data: url28 });
+				map.addLayer({ "id": "drone28", "type": "line", "source": "drone28",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone29', { type: 'geojson', data: url29 });
+				map.addLayer({ "id": "drone29", "type": "line", "source": "drone29",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone30', { type: 'geojson', data: url30 });
+				map.addLayer({ "id": "drone30", "type": "line", "source": "drone30",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone31', { type: 'geojson', data: url31 });
+				map.addLayer({ "id": "drone31", "type": "line", "source": "drone31",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone32', { type: 'geojson', data: url32 });
+				map.addLayer({ "id": "drone32", "type": "line", "source": "drone32",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone33', { type: 'geojson', data: url33 });
+				map.addLayer({ "id": "drone33", "type": "line", "source": "drone33",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone34', { type: 'geojson', data: url34 });
+				map.addLayer({ "id": "drone34", "type": "line", "source": "drone34",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone35', { type: 'geojson', data: url35 });
+				map.addLayer({ "id": "drone35", "type": "line", "source": "drone35",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone36', { type: 'geojson', data: url36 });
+				map.addLayer({ "id": "drone36", "type": "line", "source": "drone36",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone37', { type: 'geojson', data: url37 });
+				map.addLayer({ "id": "drone37", "type": "line", "source": "drone37",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone38', { type: 'geojson', data: url38 });
+				map.addLayer({ "id": "drone38", "type": "line", "source": "drone38",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				map.addSource('drone39', { type: 'geojson', data: url39 });
+				map.addLayer({ "id": "drone39", "type": "line", "source": "drone39",
+				"layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "red", "line-width": 2 }});
+				
+				}); 
+				
+				
+				
+				
+				map.addControl(new mapboxgl.FullscreenControl());
+				map.addControl(new mapboxgl.GeolocateControl({
+    positionOptions: {
+        enableHighAccuracy: true
+    },
+    trackUserLocation: true
 }));
-L.control.fullscreen().addTo(map);
-
-function style(feature) {
-return {
-    weight: 2,
-    opacity: 1,
-    color: 'red',
-    //dashArray: '3',
-    fillOpacity: 0.7
-};
-}
-var customLayer = L.geoJson(null, {style: style});
-
-omnivore.kml('kml/bike/20_rd_to_grand_traverse_county_mccct.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/atlanta_to_hunt_creek_mccct.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/bass_lake_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/beaver_creek_trail_mccct.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/big_o_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/birch_hill_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/brevort_trout_lake_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/evart_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/foreman_lake_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/grand_traverse_county_to_supply_rd_mccct.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/grand_traverse_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/grand_traverse_to_leetsville_mccct.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/holton_loop_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/horseshoe_lake_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/hunt_creek_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/kinross_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/leetsville_to_kalkaska_mccct.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/lincoln_hills_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/little_manistee_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/long_lake_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/m_20_to_big_o__mccct_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/m_20_to_big_o_motorcycle__mccct.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/m_30_north_gladwin_mccct.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/m_30_to_st_helen_3_mccct.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/m_55_to_20_rd_mccct.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/m_55_to_state_rd_mccct.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/mccct_cross_state_connector.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/mio_to_meadows_mccct.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/moss_lake_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/newberry_rexton_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/north_missaukee_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/north_missaukee_motorcycle_trail__mccct.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/porterfield_lake_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/red_bridge_to_atlanta_mccct.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/sandtown_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/st_helen_to_geels_trail__mccct.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/the_meadows_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/tin_cup_spring_motorcycle_trail.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/tomahawk_motorcycle_trail_b_loop.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/tomahawk_motorcycle_trail_c_loop.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/tomahawk_to_kalkaska_mccct.kml', null, customLayer).addTo(map);
-omnivore.kml('kml/bike/tomahawk_to_red_bridge_mccct.kml', null, customLayer).addTo(map);
-
-</script>
-  </body>
-</html>
+				</script> 
+				</body> 
+				</html>
