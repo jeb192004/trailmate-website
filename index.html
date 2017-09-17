@@ -9,10 +9,51 @@
 	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js'></script>
 	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' /> 
 	<link rel="icon" sizes="192x192" href="img/icon2.png"> 
-	<style> body { margin:0; padding:0; } #map { position:absolute; top:0; bottom:0; width:100%; } </style> 
-  </head> 
+	<style> body { margin:0; padding:0; height:100%;} 
+	  #map { position:absolute; top:0; bottom:0; width:100%; }
+	  #mapcontainer { position:absolute; top:50px; bottom:40px; width:100%; }
+	  #legand {
+  text-align: justify;
+}
+
+#legand img {
+  display: inline-block;
+  
+    
+}
+
+#legand:after {
+  content: "";
+  width: 100%;
+  display: inline-block;
+}
+
+   #footer {
+    clear: both;
+    position: fixed;
+    bottom:0;
+} 
+	  </style> 
+	
+	</head> 
   <body> 
+	<div id='legand'>
+	  <img src="/img/bike.png" title="Motocross" width="50" height="50" style="background-color:red;margin-left: 25%;">
+	   <img src="/img/atv.png" title="ATV Filled" width="50" height="50" style="background-color:#04FF07;">
+	  <img src="/img/utv.png" title="UTV Filled" width="50" height="50" style="background-color:blue;margin-right: 25%;">
+	</div>
+	<div id='mapcontainer'>
 	<div id='map'></div> 
+	</div>
+	
+	<footer id='footer'>
+	  <div id='about'>
+		<a href="https://icons8.com/icon/25256/UTV">Utv icon credits</a>
+		<a href="https://icons8.com/icon/25255/ATV">Atv icon credits</a>
+		<a href="https://icons8.com/icon/25259/Dirt-Bike">Dirt bike icon credits</a>
+		
+	  </div>
+	</footer>
 <script> mapboxgl.accessToken = 'pk.eyJ1IjoiamViMTkyMDA0IiwiYSI6ImNpbWNyODZyaDAwMmZ1MWx2dHdzcHQ5M2EifQ.IZsMnB3wOYFIaX1A5sy7Mw';
 				var map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/mapbox/streets-v9',center:[-84.785487, 43.628709], zoom: 5 });
 				
