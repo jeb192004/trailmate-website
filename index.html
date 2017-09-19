@@ -28,7 +28,13 @@
 	
 	</head> 
   <body> 
-	
+	<div id="mySidenav" class="sidenav">
+	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <a id="bike" onclick="bikeFunction()">Motorcycle Trails</a>
+	  <a id="atv" onclick="atvFunction()">ORV Trails</a> 
+	  <a id="utv" onclick="utvFunction()">ORV Routes</a>
+	</div>
+	<div id="main">
 	<div class="topnav" id="myTopnav">
 	  <a onclick="mapSettingFunction()">Map Settings</a>
 	  <a onclick="fbFunction()">Facebook</a>
@@ -36,6 +42,7 @@
 	  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 	  
 	</div>
+	
 	
 	<div id='mapcontainer'>
 	  <div id='legand_button'>
@@ -57,7 +64,9 @@
 	  
 	<div id='map'></div> 
 	</div>
+	
 	<div id="snackbar">This button is still under construction.  Please check back later.</div>
+	</div>
 	<script src="js/scripts.js"></script>
   </body> 
 </html>
