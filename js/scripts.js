@@ -1,15 +1,15 @@
 
-
-mapboxgl.accessToken = 'pk.eyJ1IjoiamViMTkyMDA0IiwiYSI6ImNpbWNyODZyaDAwMmZ1MWx2dHdzcHQ5M2EifQ.IZsMnB3wOYFIaX1A5sy7Mw';
-				var map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/mapbox/streets-v9',center:[-84.785487, 43.628709], zoom: 5 });
-				
-				var bike = 'geojson/bike.geojson';
-				var atv = 'geojson/atv.geojson';
-				var utv = 'geojson/utv.geojson';
 				document.getElementById('bike').style.color="red";
 				document.getElementById('atv').style.color="lime";
 				document.getElementById('utv').style.color="blue";
-				map.on('load', function () {
+			
+mapboxgl.accessToken = 'pk.eyJ1IjoiamViMTkyMDA0IiwiYSI6ImNpbWNyODZyaDAwMmZ1MWx2dHdzcHQ5M2EifQ.IZsMnB3wOYFIaX1A5sy7Mw';
+				var map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/mapbox/streets-v9',center:[-84.785487, 43.628709], zoom: 5 });
+				var bike = 'geojson/bike.geojson';
+				var atv = 'geojson/atv.geojson';
+				var utv = 'geojson/utv.geojson';
+				var url = 'geojson/orv_trailheads.geojson';
+					map.on('load', function () {
 				map.addSource('bike', { type: 'geojson', data: bike});
 				map.addSource('atv', { type: 'geojson', data: atv});
 				map.addSource('utv', { type: 'geojson', data: utv});
@@ -22,9 +22,35 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiamViMTkyMDA0IiwiYSI6ImNpbWNyODZyaDAwMmZ1MWx2d
 				map.addLayer({"id": "utv","type": "line","source": "utv",
                 "layout": { "line-join": "round", "line-cap": "round" },
                 "paint": {"line-color": "blue", "line-width": 2 }});
+				map.addSource('orv_trailheads', { type: 'geojson', data: url });
+				
 				}); 
 				
-				
+				map.on('click', 'orv_th_points', function (e) {
+        new mapboxgl.Popup()
+            .setLngLat(e.features[0].geometry.coordinates)
+            .setHTML(e.features[0].properties.Name)
+            .addTo(map);
+			var orvTH =e.features[0].geometry.coordinates;
+			var orvTHLat = orvTH[1];
+			var orvTHLon = orvTH[0];
+			var orvthMapdata = orvTHLat +"," + orvTHLon;
+			//show route to location
+			window.open("http://maps.google.com/maps?daddr=" + orvthMapdata);
+			//nvigate to location
+			//window.open("google.navigation:q=" + orvthMapdata);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', 'places', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'places', function () {
+        map.getCanvas().style.cursor = '';
+    });
+
 				
 				
 				map.addControl(new mapboxgl.FullscreenControl());
@@ -135,6 +161,21 @@ function utvFunction(){
                 "layout": { "line-join": "round", "line-cap": "round" },
                 "paint": {"line-color": "blue", "line-width": 2 }});
 }
+};
 
-
+function orvTHFunction(){
+	    var utvText = document.getElementById('orv_th').style.color;
+    if (utvText == "cyan"){
+        document.getElementById('orv_th').style.color="white";
+		map.removeLayer('utv');
+    }else{
+        document.getElementById('orv_th').style.color="cyan";
+		map.loadImage('img/parking.jpg',
+				function(error, image) {
+					if (error) throw error;
+					map.addImage('cat', image);
+					map.addLayer({ "id": "orv_th_points", "type": "symbol", "source": "orv_trailheads",
+									"layout": { "icon-image": "cat", "icon-size": 0.50 } }); });
+									
+}
 };
