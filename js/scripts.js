@@ -164,8 +164,8 @@ function utvFunction(){
 };
 
 function orvTHFunction(){
-	    var utvText = document.getElementById('orv_th').style.color;
-    if (utvText == "cyan"){
+	    var orvthText = document.getElementById('orv_th').style.color;
+    if (orvthText == "cyan"){
         document.getElementById('orv_th').style.color="white";
 		map.removeLayer('orv_th_points');
     }else{
