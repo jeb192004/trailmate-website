@@ -163,7 +163,7 @@ function utvFunction(){
 }
 };
 
-function orvTHFunction(){
+function orv_thFunction(){
 	    var orvthText = document.getElementById('orv_th').style.color;
     if (orvthText == "cyan"){
         document.getElementById('orv_th').style.color="white";
