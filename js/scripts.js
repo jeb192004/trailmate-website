@@ -167,7 +167,7 @@ function orvTHFunction(){
 	    var utvText = document.getElementById('orv_th').style.color;
     if (utvText == "cyan"){
         document.getElementById('orv_th').style.color="white";
-		map.removeLayer('utv');
+		map.removeLayer('orv_th_points');
     }else{
         document.getElementById('orv_th').style.color="cyan";
 		map.loadImage('img/parking.jpg',
