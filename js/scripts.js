@@ -74,28 +74,18 @@ function myFunction() {
 function aboutFunction() {
     window.location="About.html";
 };
-function legandFunction() {
-    var legand = document.getElementById("legand_button");
-	var legandbutton = document.getElementById("legand_container");
-    legand.style.visibility='hidden';
-    legandbutton.style.visibility='visible';
+function miFunction() {
+    window.location="mi.html";
 };
-function legandFunction2() {
-    var legand = document.getElementById("legand_button");
-	var legandbutton = document.getElementById("legand_container");
-    legand.style.visibility='visible';
-    legandbutton.style.visibility='hidden';
+function wiFunction() {
+    window.location="wi.html";
 };
-/**function mapSettingFunction() {
-    // Get the snackbar DIV
-    var mapsetting = document.getElementById("snackbar");
-
-    // Add the "show" class to DIV
-    mapsetting.className = "show";
-
-    // After 3 seconds, remove the show class from DIV
-    setTimeout(function(){ mapsetting.className = mapsetting.className.replace("show", ""); }, 3000);
-}**/
+function geoMakerFunction() {
+    window.location="lat-lon-convert-geo.html";
+};
+function geoConvertFunction() {
+    window.location="togeojson.html";
+};
 function fbFunction() {
     setTimeout(function () { window.location = "https://www.facebook.com/OrvTrailMate/"; }, 25);
 	window.location = "fb://page/1731877297109570";
