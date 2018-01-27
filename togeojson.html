@@ -19,25 +19,33 @@
 	  <a id='#about' onclick="aboutFunction()">About</a>
 	  <a href="javascript:void(0);" class="icon1" onclick="myFunction()">&#9776;</a>
 	</div>
+	<div class="loader" id="loader"></div>
 	<div class='col8 margin2 pad2'>
 	  <h1 class='center'>
 		<a>Convert KML &amp; GPX</a> into <a target='_blank'>GeoJSON</a>
 		<input id="upload" type=file   accept="text/html" name="files[]" size=30>
 	  </h1>
 	  <div class='clearfix col12'>
+		
+		
+		<div class='col6 pad2' id="output1">
+		  <strong class='h30'>GeoJSON</strong>
+		  <a id="file_notice">File will appear below once it is uploaded and converted to geojson</a><br><br>
+		  <a class='button' id='show_file_btn' onclick="showFile()">Show Converted File</a><br>
+		  <textarea id='output'></textarea></div>
+		  
 		<div class='col6'>
+		  <img src="/img/img1.jpg" id="img1" class="rotate90" width="100%" height="100%">
 		  <select id='format'>
-			<option>Select File Type to be Converted</option>
+			<option value='none'>Select File Type to be Converted</option>
 			<option value='kml'>KML</option>
 			<option value='gpx'>GPX</option>
 		  </select>
+		  <button onclick="convertFunction()" id="convert_btn">Convert File</button>
 		  <textarea id='in'>
-			
+
 		  </textarea>
 		</div>
-		<div class='col6'>
-		  <strong class='h30'>GeoJSON</strong>
-		  <textarea id='output'></textarea></div>
 	  </div>
 	  
 	  <div class='clearfix col12'>
@@ -45,40 +53,54 @@
 		  <a>Keep file name from uploaded file</a><br>
 		  <a>-or-</a><br>
 		  <input type="text" id="new_name" placeholder="New File Name -optional-">
-		  <a class='button' onclick="downloadFile()">⬇ Download new file</a>
+		  <a class='button' id='download_bttn' onclick="downloadFile()">⬇ Download new file</a><br><br>
+		  <h3>Coming Soon!!!</h3>
+		  <a>Upload GeoJson files to be used in the ORV TrailMate Android app</a><br>
+		  <a>If you would like your trails added before the option to upload is available, you can contact me at <a href="mailto:jeb.a.apps@gmail.com">jeb.a.apps@gmail.com</a></a>
 		</div>
+		
+		
 		<div class='col6 pad2'>
-		  <h3>KML</h3>
+		  <hr/>
+		  <h3>About this page</h3>
 		  <p>
 			<ul class='features'>
-			  <li>LineString, Polygon, MultiPolygon, MultiLineString, Point, MultiGeometry</li>
-			  <li>ExtendedData, SimpleData, name, description</li>
+			  <li>Use this page to convert kml or gpx file to geojson.</li><br>
+			  <li>The maps on this site and the ORV TrailMate Android app use GeoJson files to display trials and routes.</li><br>
+			  
+			  
 			</ul>
 		  </p>
-		  <h3>GPX</h3>
-		  <p>
-			<ul class='features'>
-			  <li>Tracks, Routes, and Waypoints</li>
-			  <li>Standard metadata</li>
-			</ul>
-		  </p>
+	
+		  
 		</div>
 	  </div>
 	</div>
 	<div id='output'></div>
 	<script src='js/togeojson.js'></script>
 <script>
+  loader.style.display = "none";
 var input = document.getElementById('in');
 var out = document.getElementById('output');
 var format = document.getElementById('format');
 input.onchange = input.onkeyup = format.onchange = update = function() {
-    out.value = JSON.stringify(toGeoJSON[format.value]((new DOMParser()).parseFromString(input.value, 'text/xml')), null, 4);
+  if(format.value == "none"){
+	  convert_bttn.style.display = "none";
+  }else{
+	  convert_bttn.style.display = "block";
+  }
+    
+	
 };
+
+	
 update();
 </script>
 <script type="text/javascript">
+  
   var _gauges = _gauges || [];
   (function() {
+  
     var t   = document.createElement('script');
     t.type  = 'text/javascript';
     t.async = true;
@@ -87,6 +109,7 @@ update();
     t.src = '//secure.gaug.es/track.js';
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(t, s);
+
   })();
 </script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

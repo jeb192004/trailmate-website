@@ -29,6 +29,7 @@ footer, header, hgroup, menu, nav, section {
   display:block;
   }
 body { line-height:1; 
+background-color: tan;
 }
 ol, ul { list-style:none;  }
 blockquote, q { quotes:none; }
@@ -54,6 +55,55 @@ textarea {
   box-sizing: border-box;
   }
 
+  .loader {
+	margin-top: -60px; /* ( ( width / 2 ) * -1 ) */
+margin-left: -60px; /* ( ( height / 2 ) * -1 ) */
+position:fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+  #in{
+	display:none;
+  }
+  #output{
+	display:none;
+  }
+  #format{
+	display:none
+  }
+  #show_file_btn{
+	display:none;
+  }
+  #download_bttn{
+	display:none;
+  }
+  .rotate90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+#img1{
+  margin-top:50px;
+}
+  
+  
+  
 h1,
 h2,
 h3,
@@ -219,7 +269,7 @@ input[type=text] {
     }
 
 textarea {
-  height:200px;
+  height:150px;
   max-width:none;
   }
 input[type=submit] {
@@ -505,9 +555,39 @@ Details: http://www.positioniseverything.net/easyclearing.html
 	
   }
   
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
   
+  .loader {
+	margin-top: -60px; /* ( ( width / 2 ) * -1 ) */
+margin-left: -60px; /* ( ( height / 2 ) * -1 ) */
+position:fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
   
-  
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+ #img1{
+   display:none;
+ }
+
   }
 
 

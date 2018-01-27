@@ -9,11 +9,22 @@ function myFunction() {
 };
 
 
+var spinner_type = document.getElementById("format");
+var loader = document.getElementById("loader");
+var convert_bttn = document.getElementById("convert_btn");
+var download_btn = document.getElementById("download_bttn");
+var show_file_btn = document.getElementById("show_file_btn");
+var out = document.getElementById("output");
+var file_notice = document.getElementById("file_notice");
+
+
 var filename;
+var nameCheck;
 function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
-	var nameCheck = files[0].name.split(".")[1];
+	nameCheck = files[0].name.split(".")[1];
 	if(nameCheck == "kml" || nameCheck=="gpx"){
+		
 		
 var val =document.getElementById("in").value;
 if (val != "") {
@@ -28,16 +39,23 @@ if (val != "") {
     // Closure to capture the file information.
     reader.onload = (function(theFile) {
         return function(e) {
+		
 		filename = f.name.split(".")[0]+".geojson";
 		
           jQuery( '#in' ).val( e.target.result );
+		  
         };
+		
       })(f);
 
       // Read in the image file as a data URL.
       reader.readAsText(f);
+	 //setting the value of a drop down list
+convertFunction();
 	}else{
-		alert("File type not allowed.  Please upload a kml or gpx file.");
+	alert("File type not allowed.  Please upload a kml or gpx file.");
+	spinner_type.style.display = "none";
+	download_bttn.style.display = "none";
 	
 	  }
   }
@@ -46,6 +64,7 @@ if (val != "") {
   
   
   document.getElementById('upload').addEventListener('change', handleFileSelect, false);
+  
   function downloadFile() {
     
 	 var val =document.getElementById("output").value;
@@ -116,8 +135,24 @@ function fbFunction() {
     setTimeout(function () { window.location = "https://www.facebook.com/OrvTrailMate/"; }, 25);
 	window.location = "fb://page/1731877297109570";
 };
-
-
+function convertFunction() {
+	loader.style.display = "block";
+	 setTimeout(function () {
+            out.value = JSON.stringify(toGeoJSON[nameCheck]((new DOMParser()).parseFromString(input.value, 'text/xml')), null, 4);
+            loader.style.display = 'none';
+			download_btn.style.display = "block";
+			show_file_btn.style.display = "block";
+			document.getElementById("file_notice").innerHTML = "File Upload and Conversion Complete!!!";
+            // run any code that would use out.value
+        }, 100);
+};
+function showFile(){
+	loader.style.display = "block";
+	setTimeout(function () {
+	out.style.display = "block";
+	loader.style.display = "none";
+	}, 100);
+}
 
 
 var toGeoJSON = (function() {
@@ -218,8 +253,9 @@ var toGeoJSON = (function() {
     }
 
     var t = {
+		
         kml: function(doc) {
-
+			
             var gj = fc(),
                 // styleindex keeps track of hashed styles in order to match features
                 styleIndex = {}, styleByHash = {},
@@ -417,6 +453,8 @@ var toGeoJSON = (function() {
                 if (attr(root, 'id')) feature.id = attr(root, 'id');
                 return [feature];
             }
+			
+			
             return gj;
         },
         gpx: function(doc) {

@@ -50,16 +50,28 @@ function mergeFiles(file){
       if( geoJsonObjs.length >= selectedFiles.length ){
         var mergedGeoJson = merge(geoJsonObjs);
         var mergedKml = tokml(mergedGeoJson);
-        var fileName = "mergedKML_" + (new Date()).getTime() + ".kml";
+        var fileName = "gogebic" + ".kml";
 
         var blob = new Blob([mergedKml], {type: "text/plain;charset=utf-8"});
         saveAs(blob, fileName);
+		//saveFile(fileName, "data:attachment/text", mergedKml);
       }
     };
     reader.readAsText(file);
 }
 
-
+function saveFile (name, type, data) {
+    if (data != null && navigator.msSaveBlob)
+        return navigator.msSaveBlob(new Blob([data], { type: type }), name);
+    var a = $("<a style='display: none;'/>");
+    var url = window.URL.createObjectURL(new Blob([data], {type: type}));
+    a.attr("href", url);
+    a.attr("download", name);
+    $("body").append(a);
+    a[0].click();
+    window.URL.revokeObjectURL(url);
+    a.remove();
+}
 
 
 //---------------------------------
