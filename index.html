@@ -12,17 +12,16 @@
 </script>
 	<meta charset='utf-8' /> 
 	<title>TrailMate</title> 
-	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<meta name="viewport" content="width=device-width">
+	<!--<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />-->
 	<link rel="manifest" href="manifest.json">
 	<meta name="mobile-web-app-capable" content="yes">
 	  
-	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js'></script>
-	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' /> 
-	  
+	
 	<link rel="icon" sizes="192x192" href="img/icon2.png"> 
 	  
 	<link rel="stylesheet" href="css/styles.css">
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	
 	<style> 
 	  </style> 
 	
@@ -31,14 +30,14 @@
 	
 	<div id="main">
 	<div class="topnav" id="myTopnav">
-	  <div id="title">ORV TrailMate</div>
+	  <a>ORV TrailMate</a>
 	  <a onclick="fbFunction()">Facebook</a>
 	  <a id='#about' onclick="aboutFunction()">About</a>
 	  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 	  </div>
 	  
 	  <div id='mapcontainer'>
-		<img src="/img/header1.jpg" title="header_img" width="100%" height="150">
+		<img id="img" src="/img/header1.jpg">
 		
 		<h1>ORV Trails</h1>
 		<div class="state-list">
@@ -56,7 +55,7 @@
 		
 		
 	  </div>
-	<div id="snackbar">This button is still under construction.  Please check back later.</div>
+	
 	</div>
 	
 	

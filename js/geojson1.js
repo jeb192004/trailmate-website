@@ -58,17 +58,33 @@ function download(filename, text) {
     document.body.removeChild(element);
 }
  
- function latlonFunction() {
-    document.getElementById("myform2").style.display='none';
-	document.getElementById("myform").style.display='block';
+ function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
 };
-
-function lonlatFunction() {
-    document.getElementById("myform").style.display='none';
-	document.getElementById("myform2").style.display='block';
+function miFunction() {
+    window.location="mi.html";
 };
-
-
+function wiFunction() {
+    window.location="wi.html";
+};
+function aboutFunction() {
+    window.location="About.html";
+};
+function homeFunction() {
+    window.location="index.html";
+};
+function geoFunction() {
+    window.location="togeojson.html";
+};
+function fbFunction() {
+    setTimeout(function () { window.location = "https://www.facebook.com/OrvTrailMate/"; }, 25);
+	window.location = "fb://page/1731877297109570";
+};
 
 geo_maker.onchange = function() {
   if(geo_maker.value == "lon/lat"){
