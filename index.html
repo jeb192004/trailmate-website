@@ -37,20 +37,21 @@
 	  </div>
 	  
 	  <div id='mapcontainer'>
+		<div id="header-waves">
 		<img id="img" src="/img/header1.jpg">
-		
-		<h1>ORV Trails</h1>
-		<div class="state-list">
-		<a id="state" onclick="miFunction()">Michigan</a>
-		
-		<a id="state"onclick="wiFunction()">Wisconsin</a>
 		</div>
+		<h1>ORV Trails</h1>
+		<div id="state-list">
+		  <input type="button"onclick="miFunction()" class="state" value="Michigan"/>
+		  <input type="button"onclick="wiFunction()" class="state" value="Wisconsin"/>
+		</div>
+		
 		
 		<h1>Tools</h1>
 		<div class="state-list">
-		  <a id="state" onclick="geoMakerFunction()">GeoJson Maker</a>
+		  <input type="button" class="state" onclick="geoMakerFunction()" value="GeoJson Maker"/>
 
-		  <a id="state"onclick="geoConvertFunction()">kml/gpx-->GeoJson Converter</a>
+		  <input type="button" class="state" onclick="geoConvertFunction()" value="kml/gpx-->GeoJson Converter"/>
 		</div>
 		
 		
