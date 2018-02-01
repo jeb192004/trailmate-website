@@ -135,6 +135,10 @@ function fbFunction() {
     setTimeout(function () { window.location = "https://www.facebook.com/OrvTrailMate/"; }, 25);
 	window.location = "fb://page/1731877297109570";
 };
+function kmlMergeFunction() {
+    window.location="kmlmerger.html";
+};
+
 function convertFunction() {
 	loader.style.display = "block";
 	 setTimeout(function () {

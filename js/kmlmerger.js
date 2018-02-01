@@ -2,18 +2,12 @@ var selectedFiles = [];
 var geoJsonObjs = [];
 var instructions = {
   'start': "Select 2 or more KML files to merge into a single layer.",
-  'merge': "If you selected the correct files, click Merge Away!",
+  'merge': "If you selected the correct files, click Merge and Download",
   'download': "Click Download to get your file.  Or Select Files to start again.",
 };
-var copyrightYear = (new Date()).getFullYear();
-$(document).ready(function(){
-  $('#terms-of-service').hide();
-  $('#copyright').html('Copyright © ' + copyrightYear)
-});
 
-function showTos(){
-  $('#terms-of-service').toggle();
-}
+
+
 
 function updateFileInfo(files) {
   $('#merge-files').hide();
@@ -150,3 +144,39 @@ function merge (inputs) {
     }
     return output;
 }
+
+
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+};
+
+function miFunction() {
+    window.location="mi.html";
+};
+function wiFunction() {
+    window.location="wi.html";
+};
+function aboutFunction() {
+    window.location="About.html";
+};
+function homeFunction() {
+    window.location="index.html";
+};
+function geoFunction() {
+    window.location="lat-lon-convert-geo.html";
+};
+function fbFunction() {
+    setTimeout(function () { window.location = "https://www.facebook.com/OrvTrailMate/"; }, 25);
+	window.location = "fb://page/1731877297109570";
+};
+function geoConvertFunction() {
+    window.location="togeojson.html";
+};
+
+
+

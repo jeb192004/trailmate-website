@@ -60,6 +60,17 @@ function homeFunction() {
 function aboutFunction() {
     window.location="About.html";
 };
+function kmlMergeFunction() {
+    window.location="kmlmerger.html";
+};
+function geoFunction() {
+    window.location="lat-lon-convert-geo.html";
+};
+function geoConvertFunction() {
+    window.location="togeojson.html";
+};
+
+
 function legandFunction() {
     var legand = document.getElementById("legand_button");
 	var legandbutton = document.getElementById("legand_container");

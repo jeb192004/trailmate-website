@@ -4,19 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<!--
     <meta property="og:type"               content="product.group" />
     <meta property="og:title"              content="KML Merger" />
     <meta property="og:description"        content="A browser-based tool for merging KML files into a single layer." />
-
+-->
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>KML Merger</title>
 
     <!-- Bootstrap -->
-    <link href="bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="css/dropzone.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+    
+    <link href="css/kmlmerge.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,44 +22,24 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-102557339-1', 'auto');
-  ga('send', 'pageview');
-
-    </script>
+    
   </head>
   <body>
 
-    <nav class="navbar navbar-default">
-    <div class="container-fluid" id="menu">
-    <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">KML Merger</a>
-      </div>
-      <p class="navbar-text navbar-right">Contact brassmonkery @ gmail.com </p>
-    </div>
-    </nav>
+    <div class="topnav" id="myTopnav">
+	  <a onclick="homeFunction()">Home</a>
+	  <a onclick="miFunction()">MI Map</a>
+	  <a onclick="wiFunction()">WI Map</a>
+	  <a onclick="geoFunction()">GeoJson Maker</a>
+	  <a onclick="geoConvertFunction()">KML/GPX to GeoJson Converter</a>
+	  <a onclick="fbFunction()">Facebook</a>
+	  <a id='#about' onclick="aboutFunction()">About</a>
+	  <a href="javascript:void(0);" class="icon1" onclick="myFunction()">&#9776;</a>
+	</div>
 
     <div class="container" id="app">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">About</h3>
-        </div>
-        <div class="panel-body">
-          <span>This tool merges KML files into a single layer, removing layer styles. The files are not uploaded, but are processed within the browser. Currently, KMZ files are not supported.  Any unknown file types or malformed files are skipped.  Large files are likely to be problematic.  Tested using Chrome. Feel free to view the source and make your own modifications.  Email us if you run into issues or have a feature request: brassmonkery @ gmail.com.</span>
-        </div>
-      </div>
-
 
       <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Instructions</h3>
-        </div>
         <div class="panel-body">
           <span id="instructions">Select 2 or more KML files to merge into a single layer.</span>
         </div>
@@ -70,83 +48,24 @@
 
       <div class="panel panel-default">
         <div class="panel-body">
-          <label class="btn btn-primary btn-lg" for="my-file-selector">
-            <input multiple id="my-file-selector" type="file"  style="display:none"
-                                                               onchange="updateFileInfo(this.files)">
-            Select KML Files
+          <label id="file-selecter" class="btn btn-primary btn-lg" for="my-file-selector">
+            <input multiple id="my-file-selector" type="file" onchange="updateFileInfo(this.files)">
           </label>
-
-          <button id="merge-files" type="button" class="btn btn-primary btn-lg" onclick="loopFiles()" style="display:none">Merge Away!</button>
 
           <span id="download-container">
           </span>
-          <hr />
-
+          <hr/>
+		  <div class="panel-body">
+			<button id="merge-files" type="button" class="btn btn-primary btn-lg" onclick="loopFiles()" style="display:none">Merge and Download</button>
+			<br>
+		  </div>
           <ul id="file-list" class="list-group">
           </ul>
         </div>
       </div>
 
 
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Credits (and Shameless Begging)</h3>
-        </div>
-        <div class="panel-body">
-          If this service was useful to you, watch one of our <a href="https://www.youtube.com/channel/UCyXz7nay8Gj1OBg22jnrU7w">BrassMonkery videos</a>, or <a href="https://paypal.me/brassmonkery/5">buy us a beer</a>! This service depends on <a href="https://github.com/mapbox">libraries</a> provided by <a href="https://www.mapbox.com/">Mapbox</a>, so throw them a bone too!
-        </div>
-        <div class="panel-footer">
-          <span> BrassMonkery LLC </span>
-          <span id="copyright"> Copyright © 2017 </span>
-          <span>  - By using this service you agree to our <a href="#" onclick="showTos()">Terms of Service</a> </span>
-        </div>
-      </div>
-
-      <div id="terms-of-service" class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Terms of Service</h3>
-        </div>
-        <div class="panel-body">
-<p>
-AGREEMENT BETWEEN USER AND KML Merger (BrassMonkery LLC)
-<br>
-<br>
-The KML Merger Web Site is offered to you conditioned on your acceptance without modification of the terms, conditions, and notices contained herein. Your use of the KML Merger Web Site constitutes your agreement to all such terms, conditions, and notices.
-<br>
-<br>
-IMPLIED WARRANTIES KML Merger does not warrant that the operation of the service will be uninterrupted or error free. Your reliance on the availability or accuracy of the service shall be entirely at your own risk.
-<br>
-<br>
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-<br>
-<br>
-LINKS TO THIRD PARTY SITES The KML Merger web site may contain links to other web sites ("Linked Sites"). The Linked Sites are not under the control of KML Merger and KML Merger is not responsible for the contents of any Linked Site, including without limitation any link contained in a Linked Site, or any changes or updates to a Linked Site. KML Merger is not responsible for webcasting, streaming, file downloads or any other form of transmission received from any Linked Site. KML Merger is providing these links to you only for convenience, informational or reporting purposes only, and the inclusion of any link does not imply endorsement by KML Merger of the Linked Site or any association with its operators.
-<br>
-<br>
-THIRD PARTY CONTENT Third party content may appear on the Web Site or may be accessible via Linked Sites from the Web Site. We are not responsible for and assume no liability for any mistakes, misstatements of law, defamation, omissions, falsehood, obscenity, pornography or profanity in the statements, opinions, representations or any other form of content on the Site. You understand that the information and opinions in the third party content represent solely the thoughts of the author and is neither endorsed by nor does it necessarily reflect our belief.
-<br>
-<br>
-REVISIONS AND ERRATA The materials appearing on the KML Merger Web Site could include technical, typographical, or photographic errors. KML Merger does not warrant that any of the materials on its web site are accurate, complete, or current. KML Merger may make changes to the materials contained on its web site at any time without notice. KML Merger does not, however, make any commitment to update the materials.
-<br>
-<br>
-NO UNLAWFUL OR PROHIBITED USE As a condition of your use of the KML Merger Web Site, you warrant to KML Merger that you will not use the KML Merger Web Site for any purpose that is unlawful or prohibited by these terms, conditions, and notices. You may not use the KML Merger Web Site in any manner which could damage, disable, overburden, or impair the KML Merger Web Site or interfere with any other party's use of the KML Merger Web Site. You may not obtain or attempt to obtain any materials or information through any means not intentionally made available or provided for through the KML Merger Web Site. KML Merger reserves the right to terminate your access to any or all of its services at any time without notice for any reason whatsoever.
-<br>
-<br>
-USE OF COMMUNICATION SERVICES The KML MergerWeb Site may contain communication facilities designed to enable you to communicate with KML Merger administrators, you agree to use the Communication facilities only to post, send and receive messages and material that are proper and related to the particular Communication facilities. By way of example, and not as a limitation, you agree that when using a Communication Service, you will not:
-<br>
-<br>
-Publish, post, upload, distribute or disseminate any inappropriate, profane, defamatory, infringing, obscene, indecent or unlawful topic, name, material or information.
-Upload files that contain software or other material protected by intellectual property laws (or by rights of privacy of publicity) unless you own or control the rights thereto or have received all necessary consents.
-Upload files that contain viruses, corrupted files, or any other similar software or programs that may damage the operation of another's computer.
-Falsify or delete any author attributions, legal or other proper notices or proprietary designations or labels of the origin or source of software or other material contained in a file that is uploaded.
-Violate any applicable laws or regulations.
-KML Merger reserves the right at all times to disclose any information as necessary to satisfy any applicable law, regulation, legal process or governmental request.
-<br>
-<br>
-MATERIALS PROVIDED TO KML Merger OR POSTED AT THE KML Merger WEB SITE KML Merger does not claim ownership of the materials you provide to KML Merger or post, upload, input or submit to any KML Merger Web Site or its associated services (collectively "Submissions").
-</p>
-        </div>
-      </div>
+      
     </div>
 
     <script src="js/filesaver.js"></script>
