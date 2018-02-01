@@ -44,8 +44,12 @@ function mergeFiles(file){
       if( geoJsonObjs.length >= selectedFiles.length ){
         var mergedGeoJson = merge(geoJsonObjs);
         var mergedKml = tokml(mergedGeoJson);
-        var fileName = "gogebic" + ".kml";
-
+        var FileName = document.getElementById("new_name").value;
+		if (FileName !=""){
+			var fileName = FileName + ".kml";
+	}else{
+		fileName = "ORV TrailMate.kml";
+	}
         var blob = new Blob([mergedKml], {type: "text/plain;charset=utf-8"});
         saveAs(blob, fileName);
 		//saveFile(fileName, "data:attachment/text", mergedKml);
