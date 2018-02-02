@@ -47,6 +47,40 @@ h1{
     bottom:0;
 } 
 
+ul 
+{
+    list-style-type: none;
+    counter-reset: section;
+
+    -moz-column-count: 3;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 3;
+    -webkit-column-gap: 20px;
+    column-count: 3;
+    column-gap: 20px;
+}
+li{
+  
+}
+ul li 
+{
+    padding-left: 30px;
+    position: relative;
+	
+}
+
+ul li:before 
+{
+    margin: 0 0 0 -34px;
+    text-align: right;
+    width: 2em;
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+	
+}
+
+
 /* Add a black background color to the top navigation */
 .topnav {
     background-color: #333;
