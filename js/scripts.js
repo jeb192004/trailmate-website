@@ -93,7 +93,9 @@ function fbFunction() {
 function kmlMergeFunction() {
     window.location="kmlmerger.html";
 };
-
+function uploadFunction() {
+    window.location="UploadTrail.html";
+};
 
 
 function getMobileOperatingSystem() {
