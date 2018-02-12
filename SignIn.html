@@ -3,7 +3,9 @@
 	<meta name="google-signin-client_id" content="819702722487-f080846ehl64sj43voed8q4ngsqr8moo.apps.googleusercontent.com">
 	
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	<div class="g-signin2" data-onsuccess="onSignIn"
+	  data-redirecturi="https://orvtrailmate.com/uploadtrail.html"
+	  ></div>
 	<script>
 	function onSignIn(googleUser) {
 	var profile = googleUser.getBasicProfile();
