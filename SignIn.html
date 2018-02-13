@@ -18,7 +18,7 @@
 	<div style="width:90%; margin-left:5%; margin-right:5%; text-align:center">
 	  <!-- The surrounding HTML is left untouched by FirebaseUI.
 	  Your app may use that space for branding, controls and other customizations.-->
-	  <h1>Log into SWGoH.co</h1>
+	  <h1>Sign Into ORVTrailMate.com</h1>
 	  <div id="firebaseui-auth-container"></div>
 	</div>
   </body>
@@ -51,7 +51,7 @@
   
   var uiConfig = {
         callbacks: {
-          signInSuccess: function(currentUser, credential, redirectUrl) {
+          signInSuccess: function(currentUser, password, credential, redirectUrl) {
             // Do something.
             // Return type determines whether we continue the redirect automatically
             // or whether we leave that to developer to handle.
