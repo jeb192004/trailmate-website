@@ -3,7 +3,7 @@
 	<meta name="google-signin-client_id" content="819702722487-f080846ehl64sj43voed8q4ngsqr8moo.apps.googleusercontent.com">
 	<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	
 	<input type="file" id="fileButton"/>
 	<button onclick="sign_out()">Sign Out</button>
 <script>
@@ -17,6 +17,12 @@
     messagingSenderId: "819702722487"
   };
   firebase.initializeApp(config);
+  
+  function sign_out() {
+    firebase.auth().signOut().then(function() {
+  window.location="index.html";
+});
+};
 </script>
 <script>
               var fileButton = document.getElementById("fileButton");
@@ -26,11 +32,7 @@
                   storageRef.put(file);
               });  
 			  
-			  function sign_out() {
-    firebase.auth().signOut().then(function() {
-  window.location="index.html";
-});
-};
+			  
 </script>
   </body>
 </html>
