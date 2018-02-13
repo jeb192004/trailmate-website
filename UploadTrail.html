@@ -19,9 +19,13 @@
   firebase.initializeApp(config);
   
   function sign_out() {
-    firebase.auth().signOut().then(function() {
-  window.location="index.html";
+  
+  firebase.auth().signOut().then(function() {
+  alert('Signed Out');
+}, function(error) {
+  alert('Sign Out Error', error);
 });
+    
 };
 </script>
 <script>
