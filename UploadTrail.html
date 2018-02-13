@@ -4,8 +4,69 @@
 	<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	
+	
+<style>
+    body {
+      font-family: 'HelveticaNeue-Light';
+	  
+    }
+
+    .msg {
+      width: 100%;
+	  font-size:1em;
+	  
+      background-color: #efefef;
+    }
+   #text{
+
+   bottom:0;
+   }
+    #post {
+      padding: 0.5em 1em;
+      background-color: #50b1ff;
+      border: none;
+      color: #FFF;
+	  right:0;
+	  bottom:0;
+    }
+      #login {
+	  width:100%; 
+	  font-size:2em;
+      padding: 0.5em 1em;
+      background-color: #DD4B39;
+      border: none;
+      color: #FFF;
+      cursor: pointer;
+	  position:fixed
+	 
+    }
+	#send{
+	
+	position:fixed;
+      bottom:0;
+	  margin:10px;
+	}
+	#results{
+	width: 100%;
+    overflow: scroll;
+     border: 1px solid black;
+
+	}
+</style>
+	
+	
 	<input type="file" id="fileButton"/>
+	  <br>
 	<button onclick="sign_out()">Sign Out</button>
+	<br>
+	<div id="results"></div>
+	<br>
+	<div id="send">
+	  <input id="trail_name" type="text" placeholder="Message">
+<br>
+	  <input type="checkbox" name="snow" id="snow"/><label><img style="width:25px; height:25px;" src="img/snowmobile.png" alt="purple" />Snowmobile</label>
+	  <button id="post">Post</button>
+	</div>
 <script>
   // Initialize Firebase
   var config = {
@@ -27,6 +88,75 @@
 });
     
 };
+
+var rootRef = firebase.database().ref();
+    
+    
+    var trail_name = document.querySelector('#trail_name');
+    var postButton = document.querySelector('#post');
+
+     var username = null;
+    var loginButton = document.querySelector('#login');
+    //postButton.style.display = "none";
+   // trail_name.style.display = "none";
+    
+    postButton.addEventListener("click", function() {
+    var msgUser = username;
+      var trailName = trail_name.value;
+      // replace myFirebase.set(...); with the next line
+      rootRef.push({username:msgUser, text:msgText});
+      trail_name.value = "";
+    });
+    
+     var startListening = function() {
+     rootRef.on('child_added', function(snapshot) {
+        var msg = snapshot.val();
+      
+        var msgUsernameElement = document.createElement("b");
+        msgUsernameElement.textContent = msg.username;
+        
+        var msgTextElement = document.createElement("p");
+        msgTextElement.textContent = msg.text;
+  
+        var msgElement = document.createElement("div");
+        msgElement.appendChild(msgUsernameElement);
+        msgElement.appendChild(msgTextElement);
+
+         msgElement.className = "msg";
+        document.getElementById("results").appendChild(msgElement);
+        document.getElementById("results").appendChild(msgElement);
+      });
+    };
+
+    // Begin listening for data
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+           var displayName = user.displayName;
+            user.getToken().then(function(accessToken) {
+     username = displayName;
+        loginButton.textContent = username;
+        loginButton.disabled = true;
+        postButton.style.display = "block";
+        trail_name.style.display = "block";
+
+        // Start listening for data, remove previous calls to this method
+        startListening();   
+               });
+   } else {
+          //window.location = 'logIn.html';
+		  //window.sessionStorage.setItem('redirect','editToonAbil.html');
+          }
+        }, function(error) {
+          console.log(error);
+        });
+
+   
+ 
+
+
+
+
 </script>
 <script>
               var fileButton = document.getElementById("fileButton");
@@ -34,6 +164,9 @@
                   var file = e.target.files[0];
                   var storageRef = firebase.storage().ref(file.name);
                   storageRef.put(file);
+				  storageRef.getDownloadURL().then(function(url) {
+                   alert(url);
+            });
               });  
 			  
 			  
