@@ -26,6 +26,7 @@ function initializeUI() {
     if (isSubscribed) {
       // TODO: Unsubscribe user
     } else {
+		alert("working");
       subscribeUser();
     }
   });
