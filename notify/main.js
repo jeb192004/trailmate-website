@@ -1,6 +1,6 @@
 
 const applicationServerPublicKey = 'BGKp0tHQpVeWCGnJnrvAeXOyjA8mYZvBmYtTJxGMwTo0Y6xudH7TsEq6nifuq4j5oHiQJPFsAkAWyyYLMpHdhTs';
-
+var pushButton = document.querySelector('#button');
 if ('serviceWorker' in navigator && 'PushManager' in window) {
   console.log('Service Worker and Push is supported');
 
