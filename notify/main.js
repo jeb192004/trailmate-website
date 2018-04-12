@@ -80,6 +80,7 @@ function subscribeUser() {
   })
   .catch(function(err) {
     console.log('Failed to subscribe the user: ', err);
+	pushButton.textContent = 'Failed to subscribe';
     updateBtn();
   });
 }
