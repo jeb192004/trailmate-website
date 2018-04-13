@@ -13,6 +13,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
   })
   .catch(function(error) {
     console.error('Service Worker Error', error);
+	
 	pushButton.textContent = 'Service Worker Error';
   });
 } else {
@@ -79,7 +80,7 @@ function subscribeUser() {
   })
   .then(function(subscription) {
     console.log('User is subscribed.');
-
+alert("user subscribed");
     updateSubscriptionOnServer(subscription);
 
     isSubscribed = true;
@@ -88,6 +89,7 @@ function subscribeUser() {
   })
   .catch(function(err) {
     console.log('Failed to subscribe the user: ', err);
+	alert(err);
 	pushButton.textContent = 'Failed to subscribe';
     updateBtn();
   });
