@@ -4,13 +4,13 @@
 				document.getElementById('utv').style.color="blue";
 			
 mapboxgl.accessToken = 'pk.eyJ1IjoiamViMTkyMDA0IiwiYSI6ImNpbWNyODZyaDAwMmZ1MWx2dHdzcHQ5M2EifQ.IZsMnB3wOYFIaX1A5sy7Mw';
-				var map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/mapbox/streets-v9',center:[-90.006236, 44.760861], zoom: 5 });
+				var map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/jeb192004/cjug8u1672jan1fqykflo8ubd',center:[-90.006236, 44.760861], zoom: 5 });
 				
 				var utv = 'geojson/wi/wc_roadrunners_atv_utv_club.geojson';
 				var utv2 = 'geojson/wi/saratoga_atv_utv_riders_club.geojson';
 					map.on('load', function () {
 				
-				map.addSource('utv', { type: 'geojson', data: utv});
+				/*map.addSource('utv', { type: 'geojson', data: utv});
 				map.addSource('utv2', { type: 'geojson', data: utv2});
 				map.addLayer({"id": "utv","type": "line","source": "utv",
                 "layout": { "line-join": "round", "line-cap": "round" },
@@ -18,7 +18,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiamViMTkyMDA0IiwiYSI6ImNpbWNyODZyaDAwMmZ1MWx2d
 				map.addLayer({"id": "utv2","type": "line","source": "utv2",
                 "layout": { "line-join": "round", "line-cap": "round" },
                 "paint": {"line-color": "blue", "line-width": 2 }});
-				
+				*/
 				}); 
 				
 				
