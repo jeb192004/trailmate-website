@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Welcome to Glitch!</title>
+  <meta name="description" content="A cool thing made with Glitch">
+  <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- import the webpage's stylesheet -->
+  <!-- import the webpage's client-side javascript file -->
+  <script src="/new_recipe.js" defer></script>
+  <link href="css/new_recipe.css" rel="stylesheet" />
+  <link href="css/menu.css" rel="stylesheet" />
+  <link href="css/toolbar.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="506211045828-is0a7al8fbqeqhuvja50dm5nqkktopho.apps.googleusercontent.com">
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="header__title" id="header__title">Recipes</h1>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <div onclick="menu()" id="menu_icon"> <i class="fa fa-bars"></i></div>
+  </header>
+  <nav id="menu">
+    <ul class="menu_list">
+      <li class="menu_item" onclick="menu_item(this)">Home</li>
+    </ul>
+    <a class="signout" href="#" onclick="logout();">Sign out</a>
+  </nav>
+  <main id="panel">
+    <h1>
+      Add New Recipe
+    </h1>
+    <div id="name_container">
+      <input id="name" name="name" type="text" maxlength="100" placeholder="Title" aria-labelledby="submit-dream">
+    </div>
+    <p>Add Ingredients</p>
+    <form>
+      <input id="ingredients_input" name="recipeIngredient" type="text" maxlength="100" placeholder="Ingredient" aria-labelledby="submit-dream">
+      <input name="recipeAmnt" type="text" maxlength="100" placeholder="Amount" aria-labelledby="submit-dream">
+      <button type="submit" id="submit-dream">Add Ingredient</button>
+    </form>
+    <section class="dreams">
+      <ul id="dreams"></ul>
+    </section>
+    <p>Add Directions</p>
+    <form>
+      <textarea id="instructions_input" name="recipeInstructions" type="text" placeholder="Directions" aria-labelledby="submit-dream" rows="4" cols="50"></textarea>
+      <button type="submit" id="submit-instructions">Add Directions</button>
+    </form>
+    <section class="dreams">
+      <ul id="instructions"></ul>
+    </section>
+  </main>
+  <footer>
+    Made with <a href="https://glitch.com">Glitch</a>!
+  </footer>
+  <script src="/menu.js"></script>
+  <script src="/toolbar.js"></script>
+  <script src="dist/slideout.min.js"></script>
+  <a href="#" class="float" onclick="save()">
+    <i class="fa fa-save my-float"></i>
+  </a>
+</body>
+
+</html>

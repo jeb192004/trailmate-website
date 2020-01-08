@@ -1,207 +1,54 @@
-<!DOCTYPE html> 
-<html> 
-  <head> 
-	<!-- Global Site Tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106606663-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);};
-  gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="en">
 
-  gtag('config', 'UA-106606663-1');
-</script>
-	<meta charset='utf-8' /> 
-	<title>TrailMate</title> 
-	<meta name="viewport" content="width=device-width">
-	<!--<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />-->
-	<link rel="manifest" href="manifest.json">
-	<meta name="mobile-web-app-capable" content="yes">
-	  
-	
-	<link rel="icon" sizes="192x192" href="img/icon2.png"> 
-	  
-	<link rel="stylesheet" href="css/styles.css">
-	
-	<style> 
-	  </style> 
-	
-	</head> 
-  <body> 
-	
-	<div id="main">
-	<div class="topnav" id="myTopnav">
-	  <a>ORV TrailMate</a>
-	  <a onclick="fbFunction()">Facebook</a>
-	  <a id='#about' onclick="aboutFunction()">About</a>
-	  <!--<a id='#upload' onclick="uploadFunction()">upload</a>-->
-	  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-	  </div>
-	  
-	  <div id='mapcontainer'>
-		<div id="header-waves">
-		<img id="img" src="/img/header1.jpg">
-		</div>
-		<h1>ORV Trails</h1>
-		<div id="state-list">
-		  <input type="button"onclick="miFunction()" class="state" value="Michigan"/>
-			<div class="wrap">
-		  <div class="wrapper">
-			<ul
-			><li><a>20 Rd. to Grand Traverse County MCCCT</a></li
-			  ><li><a>Alcona ORV Trail</a></li
-			  ><li><a>Ambrose Lake to Ogemaw Hills Trail</a></li
-			  ><li><a>Ambrose Lake to Rose City Trail</a></li
-			  ><li><a>Ambrose Lake Trail</a></li
-			  ><li><a>Atlanta to Hunt Creek MCCCT</a></li
-			  ><li><a>Atlanta Trail & Route</a></li
-			  ><li><a>Baraga Plains Trail</a></li
-			  ><li><a>Bass Lake Motorcycle Trail</a></li
-			  ><li><a>Bay City Lake Trail</a></li
-			  ><li><a>Beaver Creek Trail MCCCT</a></li
-			  ><li><a>Bergland to Sidnaw Route</a></li
-			  ><li><a>Big Bear Trail</a></li
-			  ><li><a>Big O Motorcycle Trail</a></li
-			  ><li><a>Bill Nicholls Route</a></li
-			  ><li><a>Birch Hill Motorcycle Trail</a></li
-			  ><li><a>Black Lake Trail & Route</a></li
-			  ><li><a>Brevort-Trout Lake Motorcycle Trail</a></li
-			  ><li><a>Bull Gap Trail(Will soon be Mack Lake Motorized Trail)</a></li
-			  ><li><a>Bummer's Roost Trail</a></li
-			  >
-			  <li><a>Cedar Creek Trail</a></li
-			  ><li><a>Cranberry Lake Trail</a></li
-			  ><li><a>Crapo Creek Trail</a></li
-			  ><li><a>Danaher Plains Trail</a></li
-			  ><li><a>Days River Route</a></li
-			  ><li><a>Denton Creek Trail & Route</a></li
-			  ><li><a>Devils Lake Route</a></li
-			  ><li><a>Drummond Island Trail & Route</a></li
-			  ><li><a>Evart Motorcycle Trail</a></li
-			  ><li><a>Felch Grade Route</a></li
-			  ><li><a>Foreman Lake Motorcycle Trail</a></li
-			  ><li><a>Forest Islands Trail & Route</a></li
-			  ><li><a>Freda Grade Route</a></li
-			  ><li><a>Frederic Trail & Route</a></li
-			  ><li><a>Geels to Roscommon Route</a></li
-			  ><li><a>Geels Trail</a></li
-			  ><li><a>Gladwin Trail & Route</a></li
-			  ><li><a>Grand Traverse County to Supply Rd. MCCCT</a></li
-			  ><li><a>Grand Traverse Motorcycle Trail & Route</a></li
-			  ><li><a>Grand Traverse to Leetsville MCCCT</a></li
-			  >
-				 <li><a>Hancock-Calumet Route</a></li
-			  ><li><a>Holton Loop Motorcycle Trail</a></li
-			  ><li><a>Horseshoe Lake Motorcycle Trail</a></li
-			  ><li><a>Hunt Creek Motorcycle Trail</a></li
-			  ><li><a>Huron Trail & Huron-Sand Lake Spur</a></li
-			  ><li><a>Indian Gardens ORV Route</a></li
-			  ><li><a>Iron River-Marenisco Route</a></li
-			  ><li><a>Ishpeming-Republic Route</a></li
-			  ><li><a>Kalkaska Trail & Route</a></li
-			  ><li><a>Keweenaw Trail</a></li
-			  ><li><a>Kinross Motorcycle Trail</a></li
-			  ><li><a>Lake Linden Route</a></li
-			  ><li><a>Land O Lakes Route(coming soon!!!)</a></li
-			  ><li><a>Leetsville to Kalkaska MCCCT</a></li
-			  ><li><a>Leetsville Trail</a></li
-			  ><li><a>Leota Trail</a></li
-			  ><li><a>Lincoln Hills Motorcycle Trail & Route</a></li
-			  ><li><a>Little Manistee Motorcycle Trail & Route</a></li
-			  ><li><a>Little O Trail</a></li
-			  ><li><a>Long Lake Motorcycle Trail</a></li
-			  >
-				 <li><a>Mack Lake Motorized Trail (formerly Bull Gap Trail)</a></li
-			  ><li><a>M-20 to Big O Trail, Motorcycle & MCCCT & White Cloud Loop</a></li
-			  ><li><a>M-30 North Gladwin MCCCT</a></li
-			  ><li><a>M-30 to St. Helen #3 MCCCT</a></li
-			  ><li><a>M-55 to 20 Rd. MCCCT</a></li
-			  ><li><a>M-55 to State Rd. MCCCT</a></li
-			  ><li><a>Marenisco-Korpela Road Route</a></li
-			  ><li><a>Marquette-Manistique Trail & Route</a></li
-			  ><li><a>MCCCT Cross State Connector</a></li
-			  ><li><a>The Meadows Trail & Motorcycle</a></li
-			  ><li><a>The Meadows Trail-Rose City Trail Connector</a></li
-			  ><li><a>Mio to Meadows MCCCT</a></li
-			  ><li><a>Mio Trail & Route</a></li
-			  ><li><a>Missaukee Junction Trail</a></li
-			  ><li><a>Moss Lake Motorcycle Trail</a></li
-			  ><li><a>Newberry-Rexton Motorcycle Trail</a></li
-			  ><li><a>North Missaukee Trail, Route, Motorcycle & MCCCT</a></li
-			  ><li><a>North Missaukee & MCCCT</a></li
-			  ><li><a>Norway Trail</a></li
-			  ><li><a>Ogemaw Hills to St. Helen Trail</a></li
-			  >
-				 <li><a>Ogemaw Hills Trail & Route</a></li
-			  ><li><a>Old State House Trail & Route</a></li
-			  ><li><a>Ontonagon to Rockland Route(coming soon!!!)</a></li
-			  ><li><a>Ottawa East Connector</a></li
-			  ><li><a>Pine Ridge Trail</a></li
-			  ><li><a>Pioneer Trail</a></li
-			  ><li><a>Porterfield Lake Motorcycle Trail</a></li
-			  ><li><a>Powers-Arnold Route</a></li
-			  ><li><a>Red Bridge to Atlanta MCCCT</a></li
-			  ><li><a>Red Bridge Trail & Route</a></li
-			  ><li><a>Republic-Champion Route</a></li
-			  ><li><a>Rose City Trail</a></li
-			  ><li><a>Sandtown Motorcycle Trail</a></li
-			  ><li><a>Silver Creek Trail</a></li
-			  ><li><a>Soo-Raco Route</a></li
-			  ><li><a>Stateline Route</a></li
-			  ><li><a>St. Helen to Geels Trail & MCCCT</a></li
-			  ><li><a>St. Helen Trail & Route</a></li
-			  ><li><a>St. Ignace-Trout Lake Route</a></li
-			  ><li><a>Tin Cup Spring Motorcycle Trail & Route</a></li
-			  >
-				 <li><a>Tomahawk Trail A Loop and Indian River Route</a></li
-			  ><li><a>Tomahawk Motorcycle Trail B Loop</a></li
-			  ><li><a>Tomahawk Motorcycle Trail C Loop</a></li
-			  ><li><a>Tomahawk to Kalkaska MCCCT</a></li
-			  ><li><a>Tomahawk to Red Bridge MCCCT</a></li
-			  ><li><a>Two-Heart Trail</a></li
-			  ><li><a>West Higgins Trail and Route</a></li
-			  >
-				
-			  </ul>
-			<br />
-		  </div>
-			</div>
-		  <input type="button"onclick="wiFunction()" class="state" value="Wisconsin"/>
-			<div class="wrap">
-		  <div class="wrapper">
-			<ul
-			><li><a>WC Roadrunners ATV/UTV Club</a></li
-			  ><li><a>Saratoga Club</a></li>
+<head>
+  <title>Welcome to Glitch!</title>
+  <meta name="description" content="A cool thing made with Glitch" />
+  <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- import the webpage's stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="css/menu.css" rel="stylesheet" />
+  <link href="css/toolbar.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+  <meta name="google-signin-client_id" content="506211045828-is0a7al8fbqeqhuvja50dm5nqkktopho.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <!-- import the webpage's client-side javascript file -->
+  <script src="js/scripts.js" defer></script>
+</head>
 
-			  </ul>
-			<br />
-		  </div>
-			</div>
-		</div>
-		
-		
-		<h1>Tools</h1>
-		<div class="state-list">
-		  <input type="button" class="state" onclick="geoMakerFunction()" value="GeoJson Maker"/>
+<body>
+  <header class="header">
+    <h1 class="header__title" id="header__title">Recipes</h1>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <div onclick="menu()" id="menu_icon"><i class="fa fa-bars"></i></div>
+  </header>
+  <nav id="menu">
+    <ul class="menu_list">
+      <li class="menu_item" onclick="menu_item(this)">Add New Recipe</li>
+    </ul>
+    <a class="signout" href="#" onclick="logout();">Sign out</a>
+  </nav>
+  <header></header>
+  <main id="panel">
+    <div class="tab_container">
+      <a class="tab" id="recipe" href="javascript:recipe_list();" autofocus="autofocus">Recipes</a>
+      <a class="tab" href="javascript:air_fryer_list();">Air Fryer</a>
+    </div>
+    <section class="recipes">
+      <ul id="recipes" class="recipeList"></ul>
+    </section>
+  </main>
+  <!--
+    <footer>Made with <a href="https://glitch.com">Glitch</a>!</footer>
+-->
+  <script src="js/menu.js"></script>
+  <script src="js/toolbar.js"></script>
+  <script src="dist/slideout.min.js"></script>
+</body>
 
-		  <input type="button" class="state" onclick="geoConvertFunction()" value="kml/gpx-->GeoJson Converter"/>
-		
-		  <input type="button" class="state" onclick="kmlMergeFunction()" value="KML Merger"/>
-		</div>
-		
-		
-	  </div>
-	
-	</div>
-	
-	
-
-	  
-
-	  
-
-	
-	
-	
-	<script src="js/scripts.js"></script>
-  </body> 
 </html>

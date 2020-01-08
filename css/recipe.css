@@ -1,0 +1,35 @@
+body {
+  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  cursor: default;
+}
+
+main {
+  margin-left: 10px;
+  margin-right: 10px;
+  top: 50px;
+
+}
+
+
+h1 {
+  font-style: italic;
+  color: #373fff;
+  font-size: 28px;
+  text-transform: capitalize;
+
+}
+
+.bold {
+  font-weight: bold;
+  font-size: 26px;
+  margin-left: 5px;
+}
+
+
+footer {
+  margin-top: 50px;
+  padding-top: 25px;
+  border-top: 1px solid lightgrey;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}

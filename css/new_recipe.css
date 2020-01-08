@@ -1,0 +1,124 @@
+body {
+  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  cursor: default;
+
+}
+
+.float {
+  z-index: 100;
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #0C9;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+}
+
+.my-float {
+  margin-top: 18px;
+}
+
+.fa {
+  font-size: 28px
+}
+
+
+main {
+  width: 96%;
+  margin-left: 2%;
+  margin-rightL: 2%;
+  top: 50px;
+
+}
+
+h1 {
+  font-size: 28px;
+}
+
+form {
+  margin-bottom: 25px;
+  width: 96%;
+  padding: 2%;
+  background-color: cyan;
+  display: inline-block;
+
+  border-radius: 3px;
+}
+
+input {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 96%;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+button {
+  font-size: 16px;
+  border-radius: 3px;
+  background-color: lightgrey;
+  border: 1px solid grey;
+  box-shadow: 2px 2px teal;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: yellow;
+}
+
+button:active {
+  box-shadow: none;
+}
+
+#name_container {
+  margin-bottom: 25px;
+  width: 96%;
+  padding: 2%;
+  background-color: cyan;
+  display: inline-block;
+
+  border-radius: 3px;
+}
+
+#name {
+  font-color: black;
+  font-weight: bold;
+  text-transform: capitalize;
+  display: block;
+  margin-bottom: 0px;
+  padding: 5px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  font-size: 16px;
+
+}
+
+#ingredients_input {
+  text-transform: capitalize;
+}
+
+#instructions_input {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 96%;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  font-size: 16px;
+
+}
+
+
+footer {
+  margin-top: 50px;
+  padding-top: 25px;
+  border-top: 1px solid lightgrey;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
