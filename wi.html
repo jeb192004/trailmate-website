@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+	<!-- Global Site Tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106606663-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-106606663-1');
+</script>
+	<meta charset='utf-8' /> 
+	<title>TrailMate</title> 
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<link rel="manifest" href="manifest.json">
+	<meta name="mobile-web-app-capable" content="yes">
+
+
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+	
+	<link rel="icon" sizes="192x192" href="img/icon2.png"> 
+
+	<link rel="stylesheet" href="css/states.css">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+<style> 
+</style> 
+
+  </head> 
+  <body> 
+	<div id="mySidenav" class="sidenav">
+	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <a class="sideNavTitle" style="position: absolute;top: 0;left:0;font-size: 26px;margin-left: 2px;">Trails</a>
+	  <!--<a id="bike" onclick="bikeFunction()">Motorcycle Trails</a>
+	  <a id="atv" onclick="atvFunction()">ORV Trails</a> -->
+	  <a id="utv" onclick="utvFunction()">ORV Routes</a>
+	  <hr>
+	 <!-- <a class="sideNavTitle" style="left:0;font-size: 26px;margin-left: 2px;">Trailheads</a>
+	  <a id="orv_th" onclick="orvthFunction()">ORV Trailheads</a>
+-->
+	</div>
+	<div id="main">
+	  <div class="topnav" id="myTopnav">
+		<a onclick="mapSettingFunction()">Map Settings</a>
+		<a onclick="homeFunction()">Home</a>
+		<a onclick="geoFunction()">GeoJson Maker</a>
+		<a onclick="geoConvertFunction()">KML/GPX to GeoJson Converter</a>
+		<a onclick="kmlMergeFunction()">Kml Merger</a>
+		<a onclick="fbFunction()">Facebook</a>
+		<a id='#about' onclick="aboutFunction()">About</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+	  </div>
+
+
+	  <div id='mapcontainer'>
+		<div id='legand_button'>
+		  <a id='maplegand'>Map Legand</a><br>
+		  <div onclick="legandFunction()" style="width:100%">
+			<img src="/img/down.png" width="25" height="25">
+		  </div>
+		</div>
+		<div id='legand'>
+		  <div id='legand_container'>
+			<img src="/img/bike.png" title="Motocross" width="50" height="50" style="background-color:red;">
+			<img src="/img/atv.png" title="ATV Filled" width="50" height="50" style="background-color:#0000ff;">
+			<img src="/img/utv.png" title="UTV Filled" width="50" height="50" style="background-color:#ffa500;">
+			<div onclick="legandFunction2()" >
+			  <img src="/img/up.png" width="25" height="25">
+			</div>
+		  </div>
+		</div>
+
+		<div id='map'></div> 
+	  </div>
+
+	  <div id="snackbar">This button is still under construction.  Please check back later.</div>
+	</div>
+	<script src="js/wi_script.js"></script>
+  </body> 
+</html>

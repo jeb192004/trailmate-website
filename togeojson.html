@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<link href='css/togeojson.css' type='text/css' rel='stylesheet' />
+	
+	<title>toGeoJSON</title>
+  </head>
+  <body>
+	
+	<div class="topnav" id="myTopnav">
+	  <a onclick="homeFunction()">Home</a>
+	  <a onclick="miFunction()">MI Map</a>
+	  <a onclick="wiFunction()">WI Map</a>
+	  <a onclick="geoFunction()">GeoJson Maker</a>
+	  <a onclick="kmlMergeFunction()">Kml Merger</a>
+	  <a onclick="fbFunction()">Facebook</a>
+	  <a id='#about' onclick="aboutFunction()">About</a>
+	  <a href="javascript:void(0);" class="icon1" onclick="myFunction()">&#9776;</a>
+	</div>
+	<div class="loader" id="loader"></div>
+	<div class='col8 margin2 pad2'>
+	  <h1 class='center'>
+		<a>Convert KML &amp; GPX</a> into <a target='_blank'>GeoJSON</a>
+		<input id="upload" type=file   accept="text/html" name="files[]" size=30>
+	  </h1>
+	  <div class='clearfix col12'>
+		
+		
+		<div class='col6 pad2' id="output1">
+		  <strong class='h30'>GeoJSON</strong>
+		  <a id="file_notice">File will appear below once it is uploaded and converted to geojson</a><br><br>
+		  <a class='button' id='show_file_btn' onclick="showFile()">Show Converted File</a><br>
+		  <textarea id='output'></textarea></div>
+		  
+		<div class='col6'>
+		  <img src="/img/img1.jpg" id="img1" class="rotate90" width="100%" height="100%">
+		  <select id='format'>
+			<option value='none'>Select File Type to be Converted</option>
+			<option value='kml'>KML</option>
+			<option value='gpx'>GPX</option>
+		  </select>
+		  <button onclick="convertFunction()" id="convert_btn">Convert File</button>
+		  <textarea id='in'>
+
+		  </textarea>
+		</div>
+	  </div>
+	  
+	  <div class='clearfix col12'>
+		<div class='col6 pad2'>
+		  <a>Keep file name from uploaded file</a><br>
+		  <a>-or-</a><br>
+		  <input type="text" id="new_name" placeholder="New File Name -optional-">
+		  <a class='button' id='download_bttn' onclick="downloadFile()">⬇ Download new file</a><br><br>
+		  <h3>Coming Soon!!!</h3>
+		  <a>Upload GeoJson files to be used in the ORV TrailMate Android app</a><br>
+		  <a>If you would like your trails added before the option to upload is available, you can contact me at <a href="mailto:jeb.a.apps@gmail.com">jeb.a.apps@gmail.com</a></a>
+		</div>
+		
+		
+		<div class='col6 pad2'>
+		  <hr/>
+		  <h3>About this page</h3>
+		  <p>
+			<ul class='features'>
+			  <li>Use this page to convert kml or gpx file to geojson.</li><br>
+			  <li>The maps on this site and the ORV TrailMate Android app use GeoJson files to display trials and routes.</li><br>
+			  
+			  
+			</ul>
+		  </p>
+	
+		  
+		</div>
+	  </div>
+	</div>
+	<div id='output'></div>
+	<script src='js/togeojson.js'></script>
+<script>
+  loader.style.display = "none";
+var input = document.getElementById('in');
+var out = document.getElementById('output');
+var format = document.getElementById('format');
+input.onchange = input.onkeyup = format.onchange = update = function() {
+  if(format.value == "none"){
+	  convert_bttn.style.display = "none";
+  }else{
+	  convert_bttn.style.display = "block";
+  }
+    
+	
+};
+
+	
+update();
+</script>
+<script type="text/javascript">
+  
+  var _gauges = _gauges || [];
+  (function() {
+  
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '4e36eb1ef5a1f53d6f000001');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+
+  })();
+</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  </body>
+</html>
+

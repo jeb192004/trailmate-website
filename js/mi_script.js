@@ -4,13 +4,13 @@
 				document.getElementById('utv').style.color="blue";
 			
 mapboxgl.accessToken = 'pk.eyJ1IjoiamViMTkyMDA0IiwiYSI6ImNpbWNyODZyaDAwMmZ1MWx2dHdzcHQ5M2EifQ.IZsMnB3wOYFIaX1A5sy7Mw';
-				var map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/mapbox/streets-v9',center:[-84.785487, 43.628709], zoom: 5 });
+				var map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/jeb192004/cjug8u1672jan1fqykflo8ubd',center:[-84.785487, 43.628709], zoom: 5 });
 				var bike = 'geojson/bike.geojson';
 				var atv = 'geojson/atv.geojson';
 				var utv = 'geojson/utv.geojson';
 				var url = 'geojson/orv_trailheads.geojson';
 					map.on('load', function () {
-				map.addSource('bike', { type: 'geojson', data: bike});
+				/*map.addSource('bike', { type: 'geojson', data: bike});
 				map.addSource('atv', { type: 'geojson', data: atv});
 				map.addSource('utv', { type: 'geojson', data: utv});
 				map.addLayer({"id": "bike","type": "line","source": "bike",
@@ -21,7 +21,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiamViMTkyMDA0IiwiYSI6ImNpbWNyODZyaDAwMmZ1MWx2d
                 "paint": {"line-color": "lime", "line-width": 2 }});
 				map.addLayer({"id": "utv","type": "line","source": "utv",
                 "layout": { "line-join": "round", "line-cap": "round" },
-                "paint": {"line-color": "blue", "line-width": 2 }});
+                "paint": {"line-color": "blue", "line-width": 2 }});*/
 				map.addSource('orv_trailheads', { type: 'geojson', data: url });
 				
 				}); 
@@ -74,30 +74,48 @@ function myFunction() {
 function aboutFunction() {
     window.location="About.html";
 };
-function miFunction() {
-    window.location="mi.html";
+function kmlMergeFunction() {
+    window.location="kmlmerger.html";
 };
-function wiFunction() {
-    window.location="wi.html";
-};
-function geoMakerFunction() {
+function geoFunction() {
     window.location="lat-lon-convert-geo.html";
 };
 function geoConvertFunction() {
     window.location="togeojson.html";
 };
+
+
+
+function legandFunction() {
+    var legand = document.getElementById("legand_button");
+	var legandbutton = document.getElementById("legand_container");
+    legand.style.visibility='hidden';
+    legandbutton.style.visibility='visible';
+};
+function legandFunction2() {
+    var legand = document.getElementById("legand_button");
+	var legandbutton = document.getElementById("legand_container");
+    legand.style.visibility='visible';
+    legandbutton.style.visibility='hidden';
+};
+/**function mapSettingFunction() {
+    // Get the snackbar DIV
+    var mapsetting = document.getElementById("snackbar");
+
+    // Add the "show" class to DIV
+    mapsetting.className = "show";
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ mapsetting.className = mapsetting.className.replace("show", ""); }, 3000);
+}**/
+
+function homeFunction() {
+    window.location="index.html";
+};
 function fbFunction() {
     setTimeout(function () { window.location = "https://www.facebook.com/OrvTrailMate/"; }, 25);
 	window.location = "fb://page/1731877297109570";
 };
-function kmlMergeFunction() {
-    window.location="kmlmerger.html";
-};
-function uploadFunction() {
-    window.location="SignIn.html";
-};
-
-
 function getMobileOperatingSystem() {
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 

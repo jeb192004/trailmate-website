@@ -1,45 +1,29 @@
 
-				document.getElementById('bike').style.color="red";
-				document.getElementById('atv').style.color="lime";
+				//document.getElementById('bike').style.color="red";
+				//document.getElementById('atv').style.color="lime";
 				document.getElementById('utv').style.color="blue";
 			
 mapboxgl.accessToken = 'pk.eyJ1IjoiamViMTkyMDA0IiwiYSI6ImNpbWNyODZyaDAwMmZ1MWx2dHdzcHQ5M2EifQ.IZsMnB3wOYFIaX1A5sy7Mw';
-				var map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/mapbox/streets-v9',center:[-84.785487, 43.628709], zoom: 5 });
-				var bike = 'geojson/bike.geojson';
-				var atv = 'geojson/atv.geojson';
-				var utv = 'geojson/utv.geojson';
-				var url = 'geojson/orv_trailheads.geojson';
+				var map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/jeb192004/cjug8u1672jan1fqykflo8ubd',center:[-90.006236, 44.760861], zoom: 5 });
+				
+				var utv = 'geojson/wi/wc_roadrunners_atv_utv_club.geojson';
+				var utv2 = 'geojson/wi/saratoga_atv_utv_riders_club.geojson';
 					map.on('load', function () {
-				map.addSource('bike', { type: 'geojson', data: bike});
-				map.addSource('atv', { type: 'geojson', data: atv});
-				map.addSource('utv', { type: 'geojson', data: utv});
-				map.addLayer({"id": "bike","type": "line","source": "bike",
-                "layout": { "line-join": "round", "line-cap": "round" },
-                "paint": {"line-color": "red", "line-width": 2 }});
-				map.addLayer({"id": "atv","type": "line","source": "atv",
-                "layout": { "line-join": "round", "line-cap": "round" },
-                "paint": {"line-color": "lime", "line-width": 2 }});
+				
+				/*map.addSource('utv', { type: 'geojson', data: utv});
+				map.addSource('utv2', { type: 'geojson', data: utv2});
 				map.addLayer({"id": "utv","type": "line","source": "utv",
                 "layout": { "line-join": "round", "line-cap": "round" },
                 "paint": {"line-color": "blue", "line-width": 2 }});
-				map.addSource('orv_trailheads', { type: 'geojson', data: url });
-				
+				map.addLayer({"id": "utv2","type": "line","source": "utv2",
+                "layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "blue", "line-width": 2 }});
+				*/
 				}); 
 				
-				map.on('click', 'orv_th_points', function (e) {
-        new mapboxgl.Popup()
-            .setLngLat(e.features[0].geometry.coordinates)
-            .setHTML(e.features[0].properties.Name)
-            .addTo(map);
-			var orvTH =e.features[0].geometry.coordinates;
-			var orvTHLat = orvTH[1];
-			var orvTHLon = orvTH[0];
-			var orvthMapdata = orvTHLat +"," + orvTHLon;
-			//show route to location
-			window.open("http://maps.google.com/maps?daddr=" + orvthMapdata);
-			//nvigate to location
-			//window.open("google.navigation:q=" + orvthMapdata);
-    });
+				
+					
+				
 
     // Change the cursor to a pointer when the mouse is over the places layer.
     map.on('mouseenter', 'places', function () {
@@ -70,34 +54,49 @@ function myFunction() {
         x.className = "topnav";
     }
 };
-
+function homeFunction() {
+    window.location="index.html";
+};
 function aboutFunction() {
     window.location="About.html";
 };
-function miFunction() {
-    window.location="mi.html";
+function kmlMergeFunction() {
+    window.location="kmlmerger.html";
 };
-function wiFunction() {
-    window.location="wi.html";
-};
-function geoMakerFunction() {
+function geoFunction() {
     window.location="lat-lon-convert-geo.html";
 };
 function geoConvertFunction() {
     window.location="togeojson.html";
 };
+
+
+function legandFunction() {
+    var legand = document.getElementById("legand_button");
+	var legandbutton = document.getElementById("legand_container");
+    legand.style.visibility='hidden';
+    legandbutton.style.visibility='visible';
+};
+function legandFunction2() {
+    var legand = document.getElementById("legand_button");
+	var legandbutton = document.getElementById("legand_container");
+    legand.style.visibility='visible';
+    legandbutton.style.visibility='hidden';
+};
+/**function mapSettingFunction() {
+    // Get the snackbar DIV
+    var mapsetting = document.getElementById("snackbar");
+
+    // Add the "show" class to DIV
+    mapsetting.className = "show";
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ mapsetting.className = mapsetting.className.replace("show", ""); }, 3000);
+}**/
 function fbFunction() {
     setTimeout(function () { window.location = "https://www.facebook.com/OrvTrailMate/"; }, 25);
 	window.location = "fb://page/1731877297109570";
 };
-function kmlMergeFunction() {
-    window.location="kmlmerger.html";
-};
-function uploadFunction() {
-    window.location="SignIn.html";
-};
-
-
 function getMobileOperatingSystem() {
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
@@ -124,43 +123,27 @@ function closeNav() {
     document.getElementById("main").style.marginLeft = "0";
 };
 
-function bikeFunction(){
-	    var bike = document.getElementById('bike').style.color;
-    if (bike == "red"){
-        document.getElementById('bike').style.color="white";
-		map.removeLayer('bike');
-    }else{
-        document.getElementById('bike').style.color="red";
-		map.addLayer({"id": "bike","type": "line","source": "bike",
-                "layout": { "line-join": "round", "line-cap": "round" },
-                "paint": {"line-color": "red", "line-width": 2 }});
-}
-};
-function atvFunction(){
-	    var atvText = document.getElementById('atv').style.color;
-    if (atvText == "lime"){
-        document.getElementById('atv').style.color="white";
-		map.removeLayer('atv');
-    }else{
-        document.getElementById('atv').style.color="lime";
-		map.addLayer({"id": "atv","type": "line","source": "atv",
-                "layout": { "line-join": "round", "line-cap": "round" },
-                "paint": {"line-color": "#04FF07", "line-width": 2 }});
-}
-};
+
+
 function utvFunction(){
 	    var utvText = document.getElementById('utv').style.color;
     if (utvText == "blue"){
         document.getElementById('utv').style.color="white";
 		map.removeLayer('utv');
+		map.removeLayer('utv2');
     }else{
         document.getElementById('utv').style.color="blue";
 		map.addLayer({"id": "utv","type": "line","source": "utv",
                 "layout": { "line-join": "round", "line-cap": "round" },
                 "paint": {"line-color": "blue", "line-width": 2 }});
+				map.addLayer({"id": "utv2","type": "line","source": "utv2",
+                "layout": { "line-join": "round", "line-cap": "round" },
+                "paint": {"line-color": "blue", "line-width": 2 }});
+				
 }
 };
 
+/*
 function orvthFunction(){
 	    var orvthText = document.getElementById('orv_th').style.color;
     if (orvthText == "cyan"){
@@ -176,4 +159,4 @@ function orvthFunction(){
 									"layout": { "icon-image": "cat", "icon-size": 0.50 } }); });
 									
 }
-};
+};*/
